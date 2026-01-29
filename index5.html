@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbitra | Контент-завод для бизнеса</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#07132B', 
+                            800: '#0B1E3F', 
+                            700: '#112B5A',
+                        },
+                        accent: {
+                            DEFAULT: '#2EA8FF', 
+                            light: '#7AD3FF',   
+                            hover: '#007ACC',
+                        },
+                        text: {
+                            main: '#FFFFFF',
+                            muted: 'rgba(255, 255, 255, 0.72)',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(46, 168, 255, 0.25)',
+                    },
+                    backgroundImage: {
+                        'tech-gradient': 'radial-gradient(800px circle at 20% 10%, rgba(46,168,255,0.15), transparent 60%), radial-gradient(700px circle at 80% 30%, rgba(122,211,255,0.10), transparent 55%), linear-gradient(180deg, #07132B 0%, #0B1E3F 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #07132B; color: #ffffff; overflow-x: hidden; }
+        .glass-panel {
+            background: rgba(7, 19, 43, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(122, 211, 255, 0.15);
+        }
+        .glass-card {
+            background: rgba(11, 42, 111, 0.35);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(122, 211, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(46, 168, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(46, 168, 255, 0.1);
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(122, 211, 255, 0.2);
+            color: white;
+            transition: all 0.3s;
+        }
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #2EA8FF;
+            outline: none;
+        }
+        /* Checkmark list style */
+        .check-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2EA8FF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+    <header x-data="{ mobileMenu: false }" class="fixed top-0 w-full z-40 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 bg-accent rounded flex items-center justify-center shadow-glow">
+                        <svg class="w-5 h-5 text-navy-900" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="font-bold text-xl tracking-wide text-white">Arbitra</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#segments" class="text-text-muted hover:text-accent transition text-sm font-medium">Для кого</a>
+                    <a href="#process" class="text-text-muted hover:text-accent transition text-sm font-medium">Как работает</a>
+                    <a href="#comparison" class="text-text-muted hover:text-accent transition text-sm font-medium">Сравнение</a>
+                    <a href="#faq" class="text-text-muted hover:text-accent transition text-sm font-medium">FAQ</a>
+                </nav>
+                <div class="hidden md:flex items-center space-x-5">
+                    <a href="#contact" class="px-6 py-2.5 bg-accent hover:bg-accent-hover text-navy-900 rounded-lg text-sm font-bold transition shadow-glow">Обсудить проект</a>
+                </div>
+                <div class="md:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-white"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+                </div>
+            </div>
+        </div>
+        <div x-show="mobileMenu" @click.away="mobileMenu = false" class="md:hidden glass-panel border-t border-white/5 absolute w-full p-4 space-y-2">
+            <a href="#segments" class="block py-2 text-white">Для кого</a>
+            <a href="#process" class="block py-2 text-white">Процесс</a>
+            <a href="#contact" class="block py-2 text-accent font-bold">Оставить заявку</a>
+        </div>
+    </header>
+
+    <section class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-tech-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-block px-3 py-1 mb-6 rounded-full border border-accent/30 bg-accent/10">
+                        <span class="text-xs font-bold text-accent-light uppercase tracking-widest">Конвейерный метод</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                        Получайте до 1000 единиц <span class="text-accent">экспертного контента</span> в месяц без участия собственника
+                    </h1>
+                    
+                    <p class="text-lg text-text-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                        Arbitra — это контент-завод. Мы анализируем рынок, находим темы и производим готовые материалы (тексты, сценарии, посты) за вас. <br>
+                        <span class="text-white font-semibold">Результат:</span> вы тратите 0 часов на рутину, а соцсети живут и приносят лиды.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                        <a href="#contact" class="px-8 py-4 bg-accent hover:bg-accent-hover text-navy-900 rounded-xl font-bold text-lg transition shadow-glow transform hover:-translate-y-1">
+                            Получить пример плана
+                        </a>
+                        <p class="sm:hidden text-xs text-text-muted mt-2">Бесплатно под вашу нишу</p>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6 flex flex-wrap gap-8 justify-center lg:justify-start text-sm text-text-muted">
+                        <div>
+                            <span class="block text-2xl font-bold text-white">21 день</span>
+                            <span class="text-xs">На запуск системы</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-white">100%</span>
+                            <span class="text-xs">Попадание в вашу ЦА</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-white">Fix</span>
+                            <span class="text-xs">Цена без доплат</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block relative">
+                    <div class="relative w-full h-[540px] glass-card rounded-2xl p-6 border border-white/10 flex flex-col shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-xs text-text-muted uppercase">Status: Active</div>
+                        </div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="bg-navy-900/60 p-4 rounded-lg border-l-4 border-accent flex justify-between items-center">
+                                <div>
+                                    <div class="text-xs text-accent mb-1">Анализ рынка</div>
+                                    <div class="text-sm font-bold text-white">Найдено 15 трендовых тем</div>
+                                </div>
+                                <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xs">✓</div>
+                            </div>
+                            <div class="bg-navy-900/60 p-4 rounded-lg border-l-4 border-accent flex justify-between items-center">
+                                <div>
+                                    <div class="text-xs text-accent mb-1">Медиаплан</div>
+                                    <div class="text-sm font-bold text-white">Утверждено 3 рубрики</div>
+                                </div>
+                                <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xs">✓</div>
+                            </div>
+                            <div class="bg-navy-900/60 p-4 rounded-lg border-l-4 border-white/30 flex justify-between items-center opacity-80">
+                                <div>
+                                    <div class="text-xs text-text-muted mb-1">Производство</div>
+                                    <div class="text-sm font-bold text-white">Генерация текстов...</div>
+                                </div>
+                                <div class="animate-spin h-4 w-4 border-2 border-accent border-t-transparent rounded-full"></div>
+                            </div>
+                            
+                            <div class="absolute bottom-[-10px] right-[-10px] w-48 bg-navy-800 p-4 rounded-xl border border-accent/30 shadow-lg">
+                                <div class="text-xs text-text-muted mb-2">Рост охватов</div>
+                                <div class="flex items-end gap-1 h-16">
+                                    <div class="w-1/4 bg-accent/30 h-[40%] rounded-t"></div>
+                                    <div class="w-1/4 bg-accent/50 h-[60%] rounded-t"></div>
+                                    <div class="w-1/4 bg-accent/70 h-[80%] rounded-t"></div>
+                                    <div class="w-1/4 bg-accent h-[100%] rounded-t"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="segments" class="py-20 bg-navy-900 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">Кому эта система подойдет идеально?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:border-accent transition">
+                    <div class="text-4xl mb-4">👨‍💻</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Эксперты и Консультанты</h3>
+                    <p class="text-text-muted text-sm mb-4">Вам нужно подтверждать экспертизу, но писать посты некогда. Вы хотите заниматься клиентами, а не текстами.</p>
+                    <ul class="text-sm text-text-muted check-list">
+                        <li>Экономия 10+ часов в неделю</li>
+                        <li>Рост личного бренда</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:border-accent transition border-accent/30 bg-accent/5 relative">
+                    <div class="absolute top-4 right-4 text-xs font-bold text-accent border border-accent/50 px-2 py-1 rounded">HOT</div>
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl font-bold text-white mb-3">B2B Компании и Агентства</h3>
+                    <p class="text-text-muted text-sm mb-4">Сложный продукт, который нужно "разжевывать". Штатный маркетолог не справляется с объемом.</p>
+                    <ul class="text-sm text-text-muted check-list">
+                        <li>Регулярный прогрев лидов</li>
+                        <li>Кейсы упакованы системно</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:border-accent transition">
+                    <div class="text-4xl mb-4">🛒</div>
+                    <h3 class="text-xl font-bold text-white mb-3">E-com и Малый бизнес</h3>
+                    <p class="text-text-muted text-sm mb-4">Нужен поток контента для соцсетей, чтобы удерживать внимание и продавать, но нет бюджета на редакцию.</p>
+                    <ul class="text-sm text-text-muted check-list">
+                        <li>Стабильные охваты</li>
+                        <li>Замена SMM-щику</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Почему классический SMM часто проваливается?</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-2">"То густо, то пусто"</h3>
+                    <p class="text-text-muted text-sm mb-4">Без системы вы постите неделю, а потом пропадаете на месяц. Охваты падают в ноль.</p>
+                    <div class="text-accent text-sm font-semibold border-t border-white/10 pt-4">→ Arbitra держит ритм ежедневно</div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Творческий кризис</h3>
+                    <p class="text-text-muted text-sm mb-4">Каждый день думать "о чем написать" — это стресс и выгорание.</p>
+                    <div class="text-accent text-sm font-semibold border-t border-white/10 pt-4">→ Темы генерируются на основе данных</div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Дорогой штат</h3>
+                    <p class="text-text-muted text-sm mb-4">Копирайтер (60к) + Редактор (80к) + SMM (50к). Итого почти 200к/мес.</p>
+                    <div class="text-accent text-sm font-semibold border-t border-white/10 pt-4">→ Один раз заплатите за контент завод и он ваш  </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 bg-navy-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-2">Как мы это делаем: 4 шага</h2>
+                <p class="text-text-muted">Прозрачный конвейер. Вы всегда знаете, что происходит.</p>
+            </div>
+            
+            <div class="space-y-6 relative">
+                <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-accent/20 hidden md:block"></div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start relative z-10">
+                    <div class="w-16 h-16 rounded-lg bg-navy-800 border border-accent/30 flex items-center justify-center text-2xl font-bold text-accent flex-shrink-0">01</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-white mb-2">Анализ проекта</h4>
+                        <p class="text-text-muted text-sm mb-4">Мы не просто "Делаем видео". Мы изучаем рынок и конкурентов.Обучаем систему вашему стилю .</p>
+                        <div class="bg-navy-900/50 p-3 rounded border border-white/5 text-xs font-mono text-accent-light">
+                            > Сканирование: 5 конкурентов... OK<br>
+                            > Анализ боли ЦА: выявлено 12 паттернов... OK
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start relative z-10">
+                    <div class="w-16 h-16 rounded-lg bg-navy-800 border border-accent/30 flex items-center justify-center text-2xl font-bold text-accent flex-shrink-0">02</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-white mb-2">Генерация Смыслов</h4>
+                        <p class="text-text-muted text-sm mb-4">Разбираем ролики на охватность. Рубрики: экспертные, продающие, вовлекающие. Вы просто говорите "ОК".</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start relative z-10">
+                    <div class="w-16 h-16 rounded-lg bg-navy-800 border border-accent/30 flex items-center justify-center text-2xl font-bold text-accent flex-shrink-0">03</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-white mb-2">Производство (Контент-цех)</h4>
+                        <p class="text-text-muted text-sm mb-4">Создаем готовые  сценарии и видеоролики Reels. Все разбито на абзацы, с заголовками и призывами к действию.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-6 items-start relative z-10">
+                    <div class="w-16 h-16 rounded-lg bg-navy-800 border border-accent/30 flex items-center justify-center text-2xl font-bold text-accent flex-shrink-0">04</div>
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-white mb-2">Передача вам</h4>
+                        <p class="text-text-muted text-sm">Вы получаете готовые видеоролики с описанием для соцсетей. Остается только скопировать и вставить в соцсети. Экономия ~20 часов в месяц.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="py-24 bg-navy-800 relative overflow-hidden" 
+        x-data="{ 
+            activeSlide: 0, 
+            slides: [
+                '1159351305', 
+                '1159351305', 
+                '1159351305' 
+            ]
+        }">
+        
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Система в действии</h2>
+                <p class="text-text-muted">Примеры контента, который мы создаем.</p>
+            </div>
+
+            <div class="relative max-w-[360px] mx-auto">
+                
+                <button @click="activeSlide = activeSlide === 0 ? slides.length - 1 : activeSlide - 1" 
+                        class="absolute left-[-80px] top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-navy-900/80 text-white flex items-center justify-center hover:bg-accent hover:border-accent transition duration-300 hidden md:flex backdrop-blur-md group">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                
+                <button @click="activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1" 
+                        class="absolute right-[-80px] top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-navy-900/80 text-white flex items-center justify-center hover:bg-accent hover:border-accent transition duration-300 hidden md:flex backdrop-blur-md group">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+
+                <div class="relative rounded-[32px] overflow-hidden border-[8px] border-navy-900 bg-black shadow-2xl z-10">
+                    
+                    <div class="flex transition-transform duration-500 ease-out" 
+                         :style="'transform: translateX(-' + (activeSlide * 100) + '%)'">
+                        
+                        <template x-for="id in slides" :key="id">
+                            <div class="w-full flex-shrink-0 relative bg-black">
+                                <div class="relative w-full pb-[177.77%] bg-navy-900">
+                                    <iframe 
+                                        :src="'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0'" 
+                                        class="absolute top-0 left-0 w-full h-full" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture" 
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </template>
+
+                    </div>
+                </div>
+
+                <div class="absolute -inset-4 bg-accent/20 rounded-[40px] blur-xl -z-10"></div>
+                
+                <div class="flex justify-center gap-3 mt-8">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <button @click="activeSlide = index" 
+                                class="h-2 rounded-full transition-all duration-300"
+                                :class="activeSlide === index ? 'bg-accent w-8' : 'bg-white/20 w-2 hover:bg-white/40'">
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-20 bg-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">Сравнение вариантов</h2>
+            <div class="overflow-x-auto glass-panel rounded-2xl border border-white/10">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-white/5">
+                            <th class="p-5 text-text-muted font-medium border-b border-white/10">Параметр</th>
+                            <th class="p-5 text-text-muted font-medium border-b border-white/10 w-1/3">Найм сотрудника</th>
+                            <th class="p-5 text-white font-bold text-lg border-b border-accent bg-accent/10 w-1/3">Arbitra</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr>
+                            <td class="p-5 border-b border-white/5 text-white">Время на старт</td>
+                            <td class="p-5 border-b border-white/5 text-text-muted">2-4 недели (поиск, собеседования)</td>
+                            <td class="p-5 border-b border-white/5 text-accent font-medium">21 день</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 border-b border-white/5 text-white">Человеческий фактор</td>
+                            <td class="p-5 border-b border-white/5 text-text-muted">Болезни, отпуска, выгорание</td>
+                            <td class="p-5 border-b border-white/5 text-accent font-medium">Работает конвейер 24/7</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 text-white">Стоимость</td>
+                            <td class="p-5 text-text-muted">Оклад + налоги (~80.000₽+)</td>
+                            <td class="p-5 text-accent font-medium">Фиксированная цена</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-navy-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-10 text-center">Ответы на вопросы</h2>
+            <div class="space-y-3" x-data="{ selected: null }">
+                <div class="glass-card rounded-lg overflow-hidden">
+                    <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-white">Я получу просто текст от нейросети?</span>
+                        <svg :class="{'rotate-180': selected === 1}" class="w-5 h-5 transform transition-transform text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="selected === 1" x-collapse class="px-6 pb-4 text-text-muted text-sm">
+                        Нет. Контент-завод — это гибридная система. Алгоритмы делают черновую работу (анализ, структура), но финальное качество и логику контролирует технология промпт-инжиниринга, настроенная под вашу нишу. Это уровень крепкого middle-копирайтера.
+                    </div>
+                </div>
+                <div class="glass-card rounded-lg overflow-hidden">
+                    <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-white">А если мне не понравятся темы?</span>
+                        <svg :class="{'rotate-180': selected === 2}" class="w-5 h-5 transform transition-transform text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="selected === 2" x-collapse class="px-6 pb-4 text-text-muted text-sm">
+                        Вы утверждаете контент-план ДО начала производства. Мы предложим темы, вы выберете лучшие. Никаких сюрпризов.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative overflow-hidden bg-gradient-to-t from-navy-900 to-navy-800">
+        <div class="absolute inset-0 z-0">
+             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Хватит сливать время на рутину</h2>
+            <p class="text-xl text-text-muted mb-10 max-w-2xl mx-auto">
+                Заполните форму, чтобы получить консультацию для вашего бизнеса и узнать стоимость подписки.
+            </p>
+            
+            <div class="glass-panel p-8 rounded-2xl max-w-md mx-auto shadow-2xl border border-accent/20">
+                <form class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs font-semibold text-accent mb-1 ml-1">Имя</label>
+                        <input type="text" placeholder="Иван" class="form-input w-full px-4 py-3 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-accent mb-1 ml-1">Телефон</label>
+                        <input type="tel" placeholder="+7 (999) 000-00-00" class="form-input w-full px-4 py-3 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-accent mb-1 ml-1">Где удобно с вами связаться?</label>
+                        <div class="relative">
+                            <select class="form-input w-full px-4 py-3 rounded-lg appearance-none cursor-pointer">
+                                <option>Telegram</option>
+                                <option>WhatsApp</option>
+                                <option>MAX</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2 pt-2">
+                        <input type="checkbox" id="consent" class="mt-1 rounded bg-white/10 border-white/20 text-accent focus:ring-accent" checked>
+                        <label for="consent" class="text-xs text-text-muted">Согласен(на) на обработку персональных данных</label>
+                    </div>
+                    <div class="pt-2 space-y-3">
+                        <button type="button" class="w-full py-4 bg-accent hover:bg-accent-hover text-navy-900 font-bold text-lg rounded-lg shadow-glow transition transform hover:scale-[1.02]">
+                        Оставить заявку
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 border-t border-white/10 pt-16 pb-24 md:pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="font-bold text-xl tracking-wide text-white mb-4 block">Arbitra</span>
+                    <p class="text-text-muted text-sm">Контент-завод полного цикла.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Меню</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a href="#segments" class="hover:text-accent">Для кого</a></li>
+                        <li><a href="#process" class="hover:text-accent">Процесс</a></li>
+                        <li><a href="#faq" class="hover:text-accent">Вопросы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Инфо</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a href="#" class="hover:text-accent">Политика конфиденциальности</a></li>
+                        <li><a href="#" class="hover:text-accent">Оферта</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Связь</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li>Telegram: @arbitra_support</li>
+                        <li>hello@arbitra.io</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div x-data="{ show: true }" x-show="show" class="fixed bottom-20 md:bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-navy-800/95 border border-white/10 p-4 rounded-xl shadow-2xl z-40">
+        <p class="text-xs text-text-muted mb-3">Используем cookies для улучшения работы.</p>
+        <button @click="show = false" class="text-xs font-bold text-navy-900 bg-accent py-1.5 px-3 rounded">ОК</button>
+    </div>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-white/10 p-3 pb-5 flex gap-3">
+        <a href="#contact" class="flex-1 bg-accent text-navy-900 font-bold py-3 px-4 rounded-lg text-center text-sm shadow-glow">Получить план</a>
+        <a href="#" class="flex-1 border border-accent/50 text-white font-bold py-3 px-4 rounded-lg text-center text-sm">Telegram</a>
+    </div>
+
+</body>
+</html>
