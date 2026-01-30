@@ -462,37 +462,36 @@
             </p>
             
             <div class="glass-panel p-8 rounded-2xl max-w-md mx-auto shadow-2xl border border-accent/20">
-                <form class="space-y-4 text-left">
+                <form id="leadForm" class="space-y-4 text-left">
                     <div>
                         <label class="block text-xs font-semibold text-accent mb-1 ml-1">Имя</label>
-                        <input type="text" placeholder="Иван" class="form-input w-full px-4 py-3 rounded-lg">
+                        <input type="text" name="name" placeholder="Алексей" class="form-input w-full px-4 py-3 rounded-lg" required>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-accent mb-1 ml-1">Телефон</label>
-                        <input type="tel" placeholder="+7 (999) 000-00-00" class="form-input w-full px-4 py-3 rounded-lg">
+                        <input type="tel" name="phone" placeholder="+7 (999) 000-00-00" class="form-input w-full px-4 py-3 rounded-lg" required>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-accent mb-1 ml-1">Где удобно с вами связаться?</label>
+                        <label class="block text-xs font-semibold text-accent mb-1 ml-1">Удобный мессенджер</label>
                         <div class="relative">
-                            <select class="form-input w-full px-4 py-3 rounded-lg appearance-none cursor-pointer">
-                                <option>Telegram</option>
-                                <option>WhatsApp</option>
-                                <option>MAX</option>
+                            <select name="messenger" class="form-input w-full px-4 py-3 rounded-lg appearance-none cursor-pointer">
+                                <option value="Telegram">Telegram</option>
+                                <option value="WhatsApp">WhatsApp</option>
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                             </div>
                         </div>
                     </div>
                     <div class="flex items-start gap-2 pt-2">
-                        <input type="checkbox" id="consent" class="mt-1 rounded bg-white/10 border-white/20 text-accent focus:ring-accent" checked>
+                        <input type="checkbox" id="consent" class="mt-1 rounded bg-white/10 border-white/20 text-accent focus:ring-accent" required checked>
                         <label for="consent" class="text-xs text-text-muted">Согласен(на) на обработку персональных данных</label>
                     </div>
                     <div class="pt-2 space-y-3">
-                        <button type="button" class="w-full py-4 bg-accent hover:bg-accent-hover text-navy-900 font-bold text-lg rounded-lg shadow-glow transition transform hover:scale-[1.02]">
-                        Оставить заявку
-                        </button>
+                        <button type="submit" id="submitBtn" class="w-full py-4 bg-accent hover:bg-accent-hover text-navy-900 font-bold text-lg rounded-lg shadow-glow transition transform hover:scale-[1.02]">Запросить демо</button>
+                        <button type="button" class="w-full py-4 border border-accent text-white font-semibold rounded-lg hover:bg-white/5 transition">Перейти в Telegram</button>
                     </div>
+                    <p id="formStatus" class="text-xs text-center text-text-muted mt-2">Свяжемся в выбранном мессенджере.</p>
                 </form>
             </div>
         </div>
@@ -543,6 +542,7 @@
 
 </body>
 </html>
+
 
 
 
