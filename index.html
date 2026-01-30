@@ -539,9 +539,48 @@
         <a href="#contact" class="flex-1 bg-accent text-navy-900 font-bold py-3 px-4 rounded-lg text-center text-sm shadow-glow">Получить план</a>
         <a href="#" class="flex-1 border border-accent/50 text-white font-bold py-3 px-4 rounded-lg text-center text-sm">Telegram</a>
     </div>
+    
+<script>
+        const scriptURL = 'ВСТАВЬТЕ_СЮДА_ВАШУ_ССЫЛКУ_ИЗ_ШАГА_3';
+        const form = document.forms['leadForm'];
+        const btn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('formStatus');
 
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Анимация загрузки
+            btn.disabled = true;
+            btn.innerHTML = "Отправляем...";
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Успех
+                    btn.innerHTML = "Готово! ✅";
+                    statusMsg.innerHTML = "Заявка успешно отправлена. Скоро напишем!";
+                    statusMsg.classList.add('text-green-400');
+                    form.reset();
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = "Запросить демо";
+                        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Ошибка
+                    btn.innerHTML = "Ошибка ❌";
+                    statusMsg.innerHTML = "Что-то пошло не так. Напишите нам в Telegram.";
+                    statusMsg.classList.add('text-red-400');
+                    console.error('Error!', error.message);
+                    btn.disabled = false;
+                });
+        });
+    </script>
+    
 </body>
 </html>
+
 
 
 
