@@ -27,6 +27,7 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/107630855" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
     :root {
       --bg: #0a0f1e;
@@ -123,9 +124,27 @@
       <a href="#comparison" class="hover:text-white transition">Сравнение</a>
       <a href="#faq" class="hover:text-white transition">FAQ</a>
     </nav>
-    <a href="#contact" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
-      Оставить заявку
-    </a>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden md:inline-flex bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+        Оставить заявку
+      </a>
+      <!-- Hamburger button (mobile) -->
+      <button id="burger-btn" class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg hover:bg-white/5 transition" aria-label="Меню">
+        <span class="burger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="burger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="burger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile nav dropdown -->
+  <div id="mobile-nav" class="md:hidden hidden flex-col gap-1 px-4 pb-4 bg-[#0a0f1e]/98 border-t border-white/5">
+    <a href="#segments" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">Для кого</a>
+    <a href="#process"  class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">Как работает</a>
+    <a href="#pricing"  class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">Цены</a>
+    <a href="#results"  class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">Результаты</a>
+    <a href="#comparison" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">Сравнение</a>
+    <a href="#faq"      class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition text-sm">FAQ</a>
+    <a href="#contact"  class="mobile-nav-link block mt-2 text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-3 rounded-xl transition text-sm">Оставить заявку</a>
   </div>
 </header>
 
@@ -1017,7 +1036,7 @@
     </div>
   </div>
   <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-600">
-    © 2024 Arbitra. Все права защищены.
+    © 2026 Arbitra. Все права защищены.
   </div>
 </footer>
 
@@ -1083,18 +1102,6 @@ document.querySelectorAll('.faq-toggle').forEach(btn => {
   });
 });
 
-// ── Slider ──
-let sliderPos = 0;
-const track = document.getElementById('slider-track');
-const cardW = 280; // card width + gap
-document.getElementById('slider-next').addEventListener('click', () => {
-  sliderPos = Math.min(sliderPos + cardW, (5 - 3) * cardW);
-  track.style.transform = `translateX(-${sliderPos}px)`;
-});
-document.getElementById('slider-prev').addEventListener('click', () => {
-  sliderPos = Math.max(sliderPos - cardW, 0);
-  track.style.transform = `translateX(-${sliderPos}px)`;
-});
 
 // ── ROI Calculator ──
 function updateCalc() {
@@ -1160,9 +1167,15 @@ document.getElementById('close-popup').addEventListener('click', () => {
 });
 document.getElementById('exit-form').addEventListener('submit', (e) => {
   e.preventDefault();
+  const tg = e.target.querySelector('input[type="text"]').value;
+  const fd = new FormData();
+  fd.append('Telegram', tg);
+  fd.append('Источник', 'Exit Popup');
+  fetch(scriptURL, { method: 'POST', body: fd })
+    .catch(() => {}); // тихо игнорируем ошибки сети
+  if(typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
   document.getElementById('exit-popup').classList.remove('show');
   sessionStorage.setItem('popup_shown','1');
-  alert('Спасибо! Мы пришлём ваш контент-план в ближайшее время.');
 });
 
 // ── Main form submit ──
@@ -1232,6 +1245,40 @@ document.querySelectorAll('.faq-toggle').forEach(function(btn) {
 // Slot urgency CTA
 var slotBtn = document.querySelector('#sticky-bar a');
 if (slotBtn) slotBtn.addEventListener('click', function() { ymGoal('click_sticky_bar'); });
+
+// ── Mobile hamburger menu ──
+const burgerBtn  = document.getElementById('burger-btn');
+const mobileNav  = document.getElementById('mobile-nav');
+const burgerLines = document.querySelectorAll('.burger-line');
+
+burgerBtn.addEventListener('click', () => {
+  const isOpen = !mobileNav.classList.contains('hidden');
+  if (isOpen) {
+    mobileNav.classList.add('hidden');
+    mobileNav.classList.remove('flex');
+    burgerLines[0].style.transform = '';
+    burgerLines[1].style.opacity = '1';
+    burgerLines[2].style.transform = '';
+  } else {
+    mobileNav.classList.remove('hidden');
+    mobileNav.classList.add('flex');
+    // Animate to X
+    burgerLines[0].style.transform = 'translateY(8px) rotate(45deg)';
+    burgerLines[1].style.opacity = '0';
+    burgerLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+  }
+});
+
+// Close mobile nav when any link is clicked
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.add('hidden');
+    mobileNav.classList.remove('flex');
+    burgerLines[0].style.transform = '';
+    burgerLines[1].style.opacity = '1';
+    burgerLines[2].style.transform = '';
+  });
+});
 
 </script>
 
