@@ -1241,6 +1241,28 @@ if (exitForm) {
       // optional: keep silent
     }
   });
+}
+
+// Аналогично для popup-формы (если нужна запись в ту же таблицу)
+const exitForm = document.getElementById('exit-form');
+if (exitForm) {
+  exitForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const tg = e.target.querySelector('input[type="text"]').value;
+
+    const fd = new FormData();
+    fd.append('Telegram', tg);
+    fd.append('Источник', 'Exit Popup');
+
+    try {
+      await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd });
+      if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
+      document.getElementById('exit-popup').classList.remove('show');
+      sessionStorage.setItem('popup_shown', '1');
+    } catch (_) {
+      // optional: keep silent
+    }
+  });
 
 // ── Yandex Metrica: CTA click goals ──
 function ymGoal(goal) {
