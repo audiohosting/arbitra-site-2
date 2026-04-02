@@ -1179,37 +1179,68 @@ document.getElementById('exit-form').addEventListener('submit', (e) => {
 });
 
 // ── Main form submit ──
-const scriptURL = 'https://script.google.com/macros/s/AKfycby97G_Vi6jRDzJUpznoAS2WQKuH55b8CZZmrTziNo2TB-t_mSrEJLrOe_bqakTTJ4J3/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycby9w-9Z8TZ-_ZjfjbfRY2z6aUd6TS9Zu7SKxCFPag3PNl6gHxc7t-Q0MpIjIF9pVvxj/exec';
+
 const form = document.getElementById('leadForm');
-const btn  = document.getElementById('submitBtn');
+const btn = document.getElementById('submitBtn');
 const statusMsg = document.getElementById('formStatus');
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   btn.disabled = true;
   btn.innerHTML = 'Отправляем...';
   btn.classList.add('opacity-60');
 
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    .then(() => {
-      if(typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'submit_form');
-      btn.innerHTML = 'Готово! ✅';
-      statusMsg.innerHTML = '<span class="text-green-400">Заявка отправлена! Свяжемся в течение 2 часов.</span>';
-      form.reset();
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.innerHTML = 'Получить бесплатную консультацию →';
-        btn.classList.remove('opacity-60');
-        statusMsg.innerHTML = '';
-      }, 6000);
-    })
-    .catch(() => {
-      btn.innerHTML = 'Ошибка ❌';
-      statusMsg.innerHTML = '<span class="text-red-400">Что-то пошло не так. Напишите нам в <a href="https://t.me/Arbitra_Help" class="underline">Telegram</a>.</span>';
-      btn.disabled = false;
-      btn.classList.remove('opacity-60');
+  try {
+    // no-cors: браузер не блокирует отправку на Apps Script Web App
+    // (ответ прочитать нельзя, но заявка гарантированно отправляется на endpoint)
+    await fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new FormData(form)
     });
+
+    if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'submit_form');
+
+    btn.innerHTML = 'Готово! ✅';
+    statusMsg.innerHTML = '<span class="text-green-400">Заявка отправлена! Свяжемся в течение 2 часов.</span>';
+    form.reset();
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = 'Получить бесплатную консультацию →';
+      btn.classList.remove('opacity-60');
+      statusMsg.innerHTML = '';
+    }, 5000);
+  } catch (error) {
+    console.error(error);
+    btn.innerHTML = 'Ошибка ❌';
+    statusMsg.innerHTML = '<span class="text-red-400">Ошибка отправки. Напишите в Telegram: <a href="https://t.me/Arbitra_Help" class="underline">@Arbitra_Help</a></span>';
+    btn.disabled = false;
+    btn.classList.remove('opacity-60');
+  }
 });
+
+// Аналогично для popup-формы (если нужна запись в ту же таблицу)
+const exitForm = document.getElementById('exit-form');
+if (exitForm) {
+  exitForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const tg = e.target.querySelector('input[type="text"]').value;
+
+    const fd = new FormData();
+    fd.append('Telegram', tg);
+    fd.append('Источник', 'Exit Popup');
+
+    try {
+      await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd });
+      if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
+      document.getElementById('exit-popup').classList.remove('show');
+      sessionStorage.setItem('popup_shown', '1');
+    } catch (_) {
+      // optional: keep silent
+    }
+  });
 
 // ── Yandex Metrica: CTA click goals ──
 function ymGoal(goal) {
