@@ -39,26 +39,20 @@
     }
     * { scroll-behavior: smooth; }
     body { background-color: var(--bg); color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
-
     /* Sticky bar */
     #sticky-bar { transition: transform .3s ease; }
-
     /* Gradient badge */
     .badge { background: linear-gradient(90deg,#1d4ed8,#7c3aed); }
-
     /* Card hover */
     .hover-card { transition: transform .2s, box-shadow .2s; }
     .hover-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(59,130,246,.15); }
-
     /* Testimonial stars */
     .stars::before { content: '★★★★★'; color: #facc15; }
-
     /* FAQ accordion */
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .25s; }
     .faq-item.open .faq-answer { max-height: 600px; padding-top: .75rem; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-icon { transition: transform .3s; }
-
     /* Pricing highlight */
     .pricing-popular { border: 2px solid var(--accent); position: relative; }
     .pricing-popular::before {
@@ -67,36 +61,27 @@
       background: var(--accent); color: #fff; font-size: 11px; font-weight: 700;
       padding: 2px 12px; border-radius: 20px; letter-spacing: .08em;
     }
-
     /* Countdown */
     #countdown span { display:inline-block; min-width:2ch; }
-
     /* Urgency bar */
     .urgency-bar { background: linear-gradient(90deg,#1e3a8a,#1d4ed8); }
-
     /* Popup overlay */
     #exit-popup { display:none; }
     #exit-popup.show { display:flex; }
-
     /* Process line */
     .process-connector { border-left: 2px dashed #1e40af; margin-left: 24px; height: 32px; }
-
     /* Modal */
     #lead-modal { display:none; }
     #lead-modal.show { display:flex; }
-
     /* Slider */
     .slider-track { transition: transform .4s ease; }
-
     /* Comparison table accent */
     .col-arbitra { background: rgba(59,130,246,.1); }
-
     /* ROI calculator */
     input[type=range] { accent-color: var(--accent); }
   </style>
 </head>
 <body>
-
 <!-- ═══════════════════════════════════════
      STICKY TOP BAR (urgency)
 ═══════════════════════════════════════ -->
@@ -106,7 +91,6 @@
   <span class="text-blue-200 text-xs">Старт за 21 день · Фиксированная цена · Без скрытых платежей</span>
   <a href="#contact" class="bg-white text-blue-700 font-bold text-xs px-4 py-1.5 rounded-full ml-2 hover:bg-blue-50 transition whitespace-nowrap">Занять слот →</a>
 </div>
-
 <!-- ═══════════════════════════════════════
      НАВИГАЦИЯ
 ═══════════════════════════════════════ -->
@@ -147,7 +131,6 @@
     <a href="#contact"  class="mobile-nav-link block mt-2 text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-3 rounded-xl transition text-sm">Оставить заявку</a>
   </div>
 </header>
-
 <!-- ═══════════════════════════════════════
      HERO
 ═══════════════════════════════════════ -->
@@ -157,7 +140,6 @@
     <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-700/20 rounded-full blur-3xl"></div>
     <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-indigo-700/15 rounded-full blur-3xl"></div>
   </div>
-
   <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-16 items-center">
     <div>
       <div class="badge inline-flex items-center gap-2 text-xs font-semibold text-white px-4 py-1.5 rounded-full mb-6">
@@ -174,7 +156,6 @@
       <p class="text-white font-semibold mb-8">
         Результат: вы тратите <span class="text-blue-400">0 часов</span> на рутину, а соцсети живут и приносят лиды.
       </p>
-
       <!-- CTA buttons -->
       <div class="flex flex-col sm:flex-row gap-4 mb-10">
         <a href="#contact" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl text-center transition text-lg shadow-lg shadow-blue-700/30">
@@ -184,7 +165,6 @@
           Узнать стоимость
         </a>
       </div>
-
       <!-- Trust badges -->
       <div class="flex flex-wrap gap-6 text-sm">
         <div>
@@ -203,7 +183,6 @@
         </div>
       </div>
     </div>
-
     <!-- Hero visual -->
     <div class="hidden lg:block">
       <div class="bg-[#111827] rounded-3xl border border-white/10 p-6 shadow-2xl">
@@ -248,7 +227,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ЛОГОТИПЫ / КЛИЕНТЫ
 ═══════════════════════════════════════ -->
@@ -265,7 +243,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ДЛЯ КОГО
 ═══════════════════════════════════════ -->
@@ -275,7 +252,6 @@
     <p class="text-slate-400 max-w-2xl mx-auto">Мы работаем с тремя типами бизнеса — и для каждого настраиваем систему индивидуально</p>
   </div>
   <div class="grid md:grid-cols-3 gap-6">
-
     <div class="hover-card bg-[#111827] border border-white/10 rounded-3xl p-8">
       <div class="text-4xl mb-4">👨‍💻</div>
       <h3 class="text-xl font-bold text-white mb-3">Эксперты и Консультанты</h3>
@@ -292,7 +268,6 @@
         Я — эксперт, хочу узнать стоимость →
       </a>
     </div>
-
     <div class="hover-card bg-[#111827] border-2 border-blue-500/60 rounded-3xl p-8 relative">
       <div class="absolute -top-3 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">🔥 ПОПУЛЯРНО</div>
       <div class="text-4xl mb-4">🏢</div>
@@ -310,7 +285,6 @@
         Я — B2B, хочу контент-план →
       </a>
     </div>
-
     <div class="hover-card bg-[#111827] border border-white/10 rounded-3xl p-8">
       <div class="text-4xl mb-4">🛒</div>
       <h3 class="text-xl font-bold text-white mb-3">E-com и Малый бизнес</h3>
@@ -329,7 +303,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ПРОБЛЕМЫ SMM
 ═══════════════════════════════════════ -->
@@ -375,7 +348,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      КАК МЫ РАБОТАЕМ: 4 ШАГА
 ═══════════════════════════════════════ -->
@@ -385,7 +357,6 @@
     <p class="text-slate-400">Прозрачный конвейер. Вы всегда знаете, что происходит.</p>
   </div>
   <div class="grid lg:grid-cols-2 gap-6">
-
     <div class="bg-[#111827] rounded-3xl p-8 border border-blue-900/30 hover-card">
       <div class="flex items-center gap-4 mb-5">
         <div class="w-12 h-12 bg-blue-600/20 border border-blue-500/40 rounded-2xl flex items-center justify-center text-blue-400 font-bold text-xl">01</div>
@@ -402,7 +373,6 @@
       </div>
       <div class="mt-4 text-xs text-slate-400">📦 Результат: бриф, портрет ЦА, топ-20 тем для старта</div>
     </div>
-
     <div class="bg-[#111827] rounded-3xl p-8 border border-blue-900/30 hover-card">
       <div class="flex items-center gap-4 mb-5">
         <div class="w-12 h-12 bg-blue-600/20 border border-blue-500/40 rounded-2xl flex items-center justify-center text-blue-400 font-bold text-xl">02</div>
@@ -419,7 +389,6 @@
       </ul>
       <div class="mt-4 text-xs text-slate-400">📦 Результат: утверждённый медиаплан + контент-план</div>
     </div>
-
     <div class="bg-[#111827] rounded-3xl p-8 border border-blue-900/30 hover-card">
       <div class="flex items-center gap-4 mb-5">
         <div class="w-12 h-12 bg-blue-600/20 border border-blue-500/40 rounded-2xl flex items-center justify-center text-blue-400 font-bold text-xl">03</div>
@@ -436,7 +405,6 @@
       </ul>
       <div class="mt-4 text-xs text-slate-400">📦 Результат: готовые тексты и сценарии за месяц</div>
     </div>
-
     <div class="bg-[#111827] rounded-3xl p-8 border border-blue-900/30 hover-card">
       <div class="flex items-center gap-4 mb-5">
         <div class="w-12 h-12 bg-blue-600/20 border border-blue-500/40 rounded-2xl flex items-center justify-center text-blue-400 font-bold text-xl">04</div>
@@ -454,14 +422,12 @@
       <div class="mt-4 text-xs text-slate-400">📦 Результат: контент готов к публикации за 1 клик</div>
     </div>
   </div>
-
   <div class="text-center mt-10">
     <a href="#contact" class="inline-flex items-center gap-2 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 font-semibold px-8 py-3.5 rounded-2xl transition">
       Хочу запустить контент-завод →
     </a>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      РЕЗУЛЬТАТЫ / КЕЙСЫ
 ═══════════════════════════════════════ -->
@@ -471,7 +437,6 @@
       <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Результаты клиентов</h2>
       <p class="text-slate-400">Реальные цифры из наших проектов</p>
     </div>
-
     <!-- Stats -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
       <div class="bg-[#111827] rounded-2xl p-6 text-center border border-white/5">
@@ -489,17 +454,15 @@
         <div class="text-sm text-slate-300 font-semibold">Экономия в месяц</div>
         <div class="text-xs text-slate-500 mt-1">У каждого клиента</div>
       </div>
-  <div class="bg-[#111827] rounded-2xl p-6 text-center border border-white/5">
-    <div class="text-4xl font-extrabold text-blue-400 mb-2">1500000 рублей</div>
-    <div class="text-sm text-slate-300 font-semibold">Сэкономленных денег</div>
-    <div class="text-xs text-slate-500 mt-1">на персонал за 6 месяцев</div>
-  </div>
-</div>
-
+      <div class="bg-[#111827] rounded-2xl p-6 text-center border border-white/5">
+        <div class="text-4xl font-extrabold text-blue-400 mb-2">1500000 рублей</div>
+        <div class="text-sm text-slate-300 font-semibold">Сэкономленных денег</div>
+        <div class="text-xs text-slate-500 mt-1">на персонал за 6 месяцев</div>
+      </div>
+    </div>
     <!-- Testimonials -->
     <h3 class="text-2xl font-bold text-white text-center mb-8">Отзывы клиентов</h3>
     <div class="grid md:grid-cols-3 gap-6 mb-8">
-
       <div class="bg-[#111827] rounded-3xl p-7 border border-white/10 hover-card">
         <div class="stars mb-3 text-sm"></div>
         <p class="text-slate-300 text-sm mb-6 leading-relaxed">«Мы попробовали нанять SMM-щика — он пропадал через 2 месяца. С Arbitra за 3 месяца охваты выросли в 3,4 раза. Теперь соцсети живут сами, а я занимаюсь клиентами.»</p>
@@ -511,7 +474,6 @@
           </div>
         </div>
       </div>
-
       <div class="bg-[#111827] rounded-3xl p-7 border border-blue-500/30 hover-card">
         <div class="stars mb-3 text-sm"></div>
         <p class="text-slate-300 text-sm mb-6 leading-relaxed">«У нас сложный B2B-продукт. Думали, что никто не сможет объяснить его через контент. Arbitra разобрались за неделю. Теперь входящих лидов в 2,4 раза больше, чем до.»</p>
@@ -523,7 +485,6 @@
           </div>
         </div>
       </div>
-
       <div class="bg-[#111827] rounded-3xl p-7 border border-white/10 hover-card">
         <div class="stars mb-3 text-sm"></div>
         <p class="text-slate-300 text-sm mb-6 leading-relaxed">«Наш интернет-магазин не мог нанять отдельного SMM. Arbitra оказалась дешевле любого фрилансера и результат намного стабильнее. Охваты с 800 до 6200 за 2 месяца.»</p>
@@ -536,41 +497,37 @@
         </div>
       </div>
     </div>
-
     <!-- Video examples -->
-    <section class="py-24 bg-navy-800 relative overflow-hidden" 
-        x-data="{ 
-            activeSlide: 0, 
+    <section class="py-24 bg-navy-800 relative overflow-hidden"
+        x-data="{
+            activeSlide: 0,
             slides: [
-                '1176160697', 
-                '1176161141', 
-                '1176161592' 
+                '1176160697',
+                '1176161141',
+                '1176161592'
             ]
         }">
-        
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
 
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Система в действии</h2>
                 <p class="text-text-muted">Полистайте примеры контента.</p>
             </div>
-
             <div class="relative w-[320px] mx-auto group">
-                
-                <button @click="activeSlide = activeSlide === 0 ? slides.length - 1 : activeSlide - 1" 
+
+                <button @click="activeSlide = activeSlide === 0 ? slides.length - 1 : activeSlide - 1"
                         class="absolute left-[-60px] top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-navy-900/80 text-white hidden md:flex items-center justify-center hover:bg-accent hover:border-accent transition cursor-pointer shadow-xl">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                
-                <button @click="activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1" 
+
+                <button @click="activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1"
                         class="absolute right-[-60px] top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-navy-900/80 text-white hidden md:flex items-center justify-center hover:bg-accent hover:border-accent transition cursor-pointer shadow-xl">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
-
                 <div class="relative rounded-[32px] overflow-hidden border-[8px] border-navy-900 bg-black shadow-2xl z-10 w-full box-content"
                      style="height: 570px;">
-                    
+
                     <div class="relative w-full h-full bg-black">
                         <template x-for="(id, index) in slides" :key="index">
                             <div class="absolute top-0 left-0 w-full h-full transition-opacity duration-500"
@@ -581,12 +538,12 @@
                                  x-transition:leave="transition ease-in duration-300"
                                  x-transition:leave-start="opacity-100"
                                  x-transition:leave-end="opacity-0">
-                                
-                                <iframe 
-                                    :src="'https://player.vimeo.com/video/' + id + '?autoplay=0&loop=1&title=0&byline=0&portrait=0'" 
-                                    class="w-full h-full" 
-                                    frameborder="0" 
-                                    allow="autoplay; fullscreen; picture-in-picture" 
+
+                                <iframe
+                                    :src="'https://player.vimeo.com/video/' + id + '?autoplay=0&loop=1&title=0&byline=0&portrait=0'"
+                                    class="w-full h-full"
+                                    frameborder="0"
+                                    allow="autoplay; fullscreen; picture-in-picture"
                                     allowfullscreen
                                     style="width: 100%; height: 100%;">
                                 </iframe>
@@ -594,8 +551,7 @@
                         </template>
                     </div>
                 </div>
-</section>
-
+    </section>
 <!-- ═══════════════════════════════════════
      ЦЕНЫ
 ═══════════════════════════════════════ -->
@@ -604,13 +560,11 @@
     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Прозрачная цена</h2>
     <p class="text-slate-400 max-w-xl mx-auto">Фиксированная стоимость без скрытых платежей. Никаких доплат за «срочность» или «дополнительные правки».</p>
   </div>
-
   <div class="max-w-2xl mx-auto">
     <div class="bg-[#111827] border-2 border-blue-500/60 rounded-3xl p-10 hover-card relative">
       <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wide">
         ЕДИНСТВЕННЫЙ ТАРИФ
       </div>
-
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
         <div>
           <h3 class="text-2xl font-bold text-white mb-1">Контент-завод</h3>
@@ -626,7 +580,6 @@
           <div class="text-slate-500 text-xs mt-1">ИИ-сервисы — ваши расходы</div>
         </div>
       </div>
-
       <div class="grid sm:grid-cols-2 gap-4 mb-10">
         <ul class="space-y-3 text-sm text-slate-300">
           <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> До 1000 единиц контента в месяц</li>
@@ -641,7 +594,6 @@
           <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Договор и закрывающие документы</li>
         </ul>
       </div>
-
       <!-- Value comparison -->
       <div class="bg-[#0a0f1e] rounded-2xl p-5 mb-8 border border-white/5">
         <p class="text-slate-400 text-xs font-semibold uppercase tracking-widest mb-3">Что это заменяет:</p>
@@ -656,7 +608,6 @@
         </div>
         <div class="mt-3 text-green-400 text-sm font-semibold">→ Arbitra: 150 000 ₽ · всё включено · никаких больничных и отпусков</div>
       </div>
-
       <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl text-lg transition shadow-lg shadow-blue-700/30">
         Получить бесплатную консультацию →
       </a>
@@ -664,7 +615,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ROI КАЛЬКУЛЯТОР
 ═══════════════════════════════════════ -->
@@ -675,8 +625,6 @@
       <p class="text-slate-400">Штат платится каждый месяц. Контент-завод — один раз.</p>
     </div>
     <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
-
-      <!-- Слайдеры: ежемесячные расходы на штат -->
       <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-5">Ваши ежемесячные расходы на контент-команду:</p>
       <div class="space-y-6 mb-8">
         <div>
@@ -701,8 +649,6 @@
           <input type="range" id="range-edit" min="0" max="150000" step="5000" value="40000" class="w-full h-2 rounded-full">
         </div>
       </div>
-
-      <!-- Сравнение: штат vs Arbitra -->
       <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10 mb-4">
         <div class="bg-[#0a0f1e] rounded-2xl p-4 border border-red-500/20">
           <div class="text-xs text-slate-400 mb-2 font-semibold uppercase tracking-wide">Штат — каждый месяц</div>
@@ -717,21 +663,17 @@
           <div class="text-sm text-green-300 font-semibold mt-2">+ ИИ-сервисы сами</div>
         </div>
       </div>
-
-      <!-- Итог: экономия -->
       <div id="savings-block" class="text-center bg-green-900/20 rounded-2xl p-5 border border-green-500/20">
         <div class="text-slate-300 text-sm mb-1">Экономия за первый год:</div>
         <div id="savings" class="text-3xl font-extrabold text-green-400">450 000 ₽</div>
         <div id="savings-year" class="text-slate-400 text-xs mt-2">Со второго года: экономия = весь годовой штат</div>
       </div>
-
       <a href="#contact" class="block text-center mt-6 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-2xl transition">
         Получить бесплатную консультацию →
       </a>
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      СРАВНЕНИЕ
 ═══════════════════════════════════════ -->
@@ -802,7 +744,6 @@
     </a>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      FAQ
 ═══════════════════════════════════════ -->
@@ -812,9 +753,7 @@
       <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Ответы на вопросы</h2>
       <p class="text-slate-400">Всё, что нужно знать перед стартом</p>
     </div>
-
     <div class="space-y-3" id="faq-list">
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Я получу просто текст от нейросети?</span>
@@ -824,7 +763,6 @@
           Нет. Контент-завод — это гибридная система. Алгоритмы делают черновую работу (анализ, структура), но финальное качество и логику контролирует технология промпт-инжиниринга, настроенная под вашу нишу. Это уровень крепкого middle-копирайтера. Каждый текст проходит редактуру и проверку на соответствие вашему голосу.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">А если мне не понравятся темы?</span>
@@ -834,7 +772,6 @@
           Вы утверждаете контент-план ДО начала производства. Мы предложим темы, вы выберете лучшие. Никаких сюрпризов. Если что-то не нравится — меняем до тех пор, пока не будете довольны. Правки включены в стоимость.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Сколько времени занимает моё участие?</span>
@@ -844,7 +781,6 @@
           На старте — 1–2 часа для заполнения брифа и знакомства. Далее — 30 минут в месяц на утверждение контент-плана. Всё остальное делает Arbitra. Именно поэтому мы называем это «без участия собственника».
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">На каких платформах публикуется контент?</span>
@@ -854,7 +790,6 @@
           Мы создаём контент для Instagram, ВКонтакте, Telegram, YouTube Shorts. По запросу — LinkedIn, TikTok, Дзен. Контент адаптируется под формат каждой платформы.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Как быстро я увижу результат?</span>
@@ -864,7 +799,6 @@
           Первые результаты (рост охватов) видны через 3–6 недель стабильных публикаций. Значительный рост лидов — через 2–3 месяца. Именно поэтому мы рекомендуем минимум 3 месяца для оценки эффективности.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Есть ли договор и гарантии?</span>
@@ -874,7 +808,6 @@
           Да, мы работаем по официальному договору оказания услуг. Закрывающие документы предоставляются ежемесячно. Если первый месяц вас не устроит — вернём деньги за неиспользованный контент.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Как вы погружаетесь в мою нишу?</span>
@@ -884,7 +817,6 @@
           На старте мы проводим глубокий анализ: изучаем 5 конкурентов, анализируем боли вашей аудитории, изучаем ваш стиль и голос. Обучаем систему вашим терминам, кейсам и ценностям. Это занимает 3–5 дней.
         </div>
       </div>
-
       <div class="faq-item bg-[#111827] rounded-2xl border border-white/10 overflow-hidden">
         <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4">
           <span class="font-semibold text-white">Можно ли попробовать на 1 месяц без обязательств?</span>
@@ -894,25 +826,21 @@
           Да. Минимальный срок работы — 1 месяц. Никаких обязательных подписок или долгосрочных контрактов. Большинство клиентов продолжают сотрудничество, но выбор всегда за вами.
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ФОРМА ЗАЯВКИ
 ═══════════════════════════════════════ -->
 <section id="contact" class="py-20 px-4 sm:px-6">
   <div class="max-w-5xl mx-auto">
     <div class="grid lg:grid-cols-2 gap-12 items-start">
-
       <!-- Left: trust signals -->
       <div>
         <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
           Запишитесь на<br><span class="text-blue-400">бесплатную консультацию</span>
         </h2>
         <p class="text-slate-400 mb-8">Заполните форму — мы свяжемся в течение 2 часов в рабочее время и подготовим персональное предложение.</p>
-
         <div class="space-y-5 mb-8">
           <div class="flex items-start gap-4">
             <div class="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center shrink-0 text-blue-400 text-lg">✓</div>
@@ -936,14 +864,12 @@
             </div>
           </div>
         </div>
-
         <div class="bg-[#111827] rounded-2xl p-5 border border-white/10">
           <div class="stars mb-2 text-sm"></div>
           <p class="text-slate-300 text-sm italic mb-3">«Позвонила просто посмотреть — в итоге запустились через 3 недели. Всё объяснили, ничего не навязывали.»</p>
           <div class="text-xs text-slate-500">— Наталья, онлайн-школа, Краснодар</div>
         </div>
       </div>
-
       <!-- Right: form -->
       <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
         <form name="leadForm" id="leadForm">
@@ -984,7 +910,6 @@
               </label>
             </div>
           </div>
-
           <button type="submit" id="submitBtn"
             class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-2xl transition text-lg">
             Получить бесплатную консультацию →
@@ -996,7 +921,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══════════════════════════════════════
      ФУТЕР
 ═══════════════════════════════════════ -->
@@ -1039,7 +963,6 @@
     © 2026 Arbitra. Все права защищены.
   </div>
 </footer>
-
 <!-- ═══════════════════════════════════════
      FLOATING CTA (mobile/scroll)
 ═══════════════════════════════════════ -->
@@ -1050,14 +973,12 @@
     <span>→</span>
   </a>
 </div>
-
 <!-- Mobile floating CTA -->
 <div id="mobile-cta" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#0a0f1e]/95 backdrop-blur border-t border-white/10 md:hidden">
   <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-2xl transition">
     Получить бесплатную консультацию →
   </a>
 </div>
-
 <!-- ═══════════════════════════════════════
      EXIT INTENT POPUP
 ═══════════════════════════════════════ -->
@@ -1077,7 +998,6 @@
     <p class="text-center text-xs text-slate-500 mt-3">Без давления. Ответим в течение 2 часов.</p>
   </div>
 </div>
-
 <!-- ═══════════════════════════════════════
      COOKIES
 ═══════════════════════════════════════ -->
@@ -1086,13 +1006,15 @@
   <button onclick="document.getElementById('cookie-bar').remove(); localStorage.setItem('cookies','ok')"
     class="ml-2 bg-blue-600 text-white text-xs px-3 py-1 rounded-lg hover:bg-blue-500 transition">ОК</button>
 </div>
-
 <!-- ═══════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════ -->
 <script>
 // Hide cookie bar if already accepted
 if(localStorage.getItem('cookies')==='ok') document.getElementById('cookie-bar').remove();
+
+// ── ИСПРАВЛЕНИЕ: scriptURL объявлен ПЕРВЫМ, чтобы был доступен везде ──
+const scriptURL = 'https://script.google.com/macros/s/AKfycby97G_Vi6jRDzJUpznoAS2WQKuH55b8CZZmrTziNo2TB-t_mSrEJLrOe_bqakTTJ4J3/exec';
 
 // ── FAQ accordion ──
 document.querySelectorAll('.faq-toggle').forEach(btn => {
@@ -1102,30 +1024,20 @@ document.querySelectorAll('.faq-toggle').forEach(btn => {
   });
 });
 
-
 // ── ROI Calculator ──
 function updateCalc() {
   const smm  = parseInt(document.getElementById('range-smm').value);
   const copy = parseInt(document.getElementById('range-copy').value);
   const edit = parseInt(document.getElementById('range-edit').value);
-
-  // Подписи слайдеров — ежемесячные расходы
   document.getElementById('val-smm').textContent  = smm.toLocaleString('ru') + ' ₽/мес.';
   document.getElementById('val-copy').textContent = copy.toLocaleString('ru') + ' ₽/мес.';
   document.getElementById('val-edit').textContent = edit.toLocaleString('ru') + ' ₽/мес.';
-
-  // Итого штат в месяц и в год
   const totalMonth = smm + copy + edit;
   const totalYear  = totalMonth * 12;
   document.getElementById('total-now').textContent = totalMonth.toLocaleString('ru') + ' ₽';
   document.getElementById('total-year').textContent = '= ' + totalYear.toLocaleString('ru') + ' ₽ в год';
-
-  // Arbitra — единоразово 150 000 ₽
   const arbitra = 150000;
-
-  // Экономия за 1-й год = годовой штат − единоразовый Arbitra
   const savingsYear1 = totalYear - arbitra;
-
   if (totalMonth === 0) {
     document.getElementById('savings').textContent = '—';
     document.getElementById('savings-year').textContent = 'Укажите расходы на штат выше';
@@ -1165,200 +1077,78 @@ document.getElementById('close-popup').addEventListener('click', () => {
   document.getElementById('exit-popup').classList.remove('show');
   sessionStorage.setItem('popup_shown','1');
 });
+
+// ИСПРАВЛЕНИЕ: mode:'no-cors' + URLSearchParams (application/x-www-form-urlencoded)
+// URLSearchParams обязателен: Apps Script читает e.parameter только из этого формата.
+// FormData отправляет multipart/form-data, который Apps Script не парсит надёжно.
 document.getElementById('exit-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const tg = e.target.querySelector('input[type="text"]').value;
-  const fd = new FormData();
-  fd.append('Telegram', tg);
-  fd.append('Источник', 'Exit Popup');
-  fetch(scriptURL, { method: 'POST', body: fd })
-    .catch(() => {}); // тихо игнорируем ошибки сети
+  const params = new URLSearchParams();
+  params.append('Telegram', tg);
+  params.append('Источник', 'Exit Popup');
+  fetch(scriptURL, { method: 'POST', body: params, mode: 'no-cors' })
+    .catch(() => {});
   if(typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
   document.getElementById('exit-popup').classList.remove('show');
   sessionStorage.setItem('popup_shown','1');
 });
 
 // ── Main form submit ──
-// Надёжный обработчик отправки формы в Google Apps Script.
-// Работает даже если файл подключён в <head> (через DOMContentLoaded).
-(function () {
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzhcDMg1CzNU7GV5Ox-Sg0nPRsdd3gbJWVMGSq0bdlm7tBHUpJJhAQqmcjV00sWjAiK/exec';
+const form = document.getElementById('leadForm');
+const btn  = document.getElementById('submitBtn');
+const statusMsg = document.getElementById('formStatus');
 
-  function toUrlEncoded(formData) {
-    const params = new URLSearchParams();
-    for (const [key, value] of formData.entries()) {
-      params.append(key, value);
-    }
-    return params;
-  }
+form.addEventListener('submit', e => {
+  // КРИТИЧНО: e.preventDefault() должен быть ПЕРВОЙ строкой обработчика.
+  // Если вызвать его после async-кода или пропустить — браузер выполнит
+  // нативный submit и перекинет на верх страницы (именно эта ошибка была в index(5).html).
+  e.preventDefault();
+  btn.disabled = true;
+  btn.innerHTML = 'Отправляем...';
+  btn.classList.add('opacity-60');
 
-  function bindMainForm() {
-    const form = document.getElementById('leadForm');
-    if (!form) return;
-
-    const btn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('formStatus');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = 'Отправляем...';
-        btn.classList.add('opacity-60');
-      }
-
-      try {
-        // Отправляем в формате x-www-form-urlencoded (самый совместимый с GAS)
-        await fetch(scriptURL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: toUrlEncoded(new FormData(form))
-        });
-
-        if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'submit_form');
-
-        if (btn) btn.innerHTML = 'Готово! ✅';
-        if (statusMsg) statusMsg.innerHTML = '<span class="text-green-400">Заявка отправлена! Свяжемся в течение 2 часов.</span>';
-        form.reset();
-
-        setTimeout(() => {
-          if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = 'Получить бесплатную консультацию →';
-            btn.classList.remove('opacity-60');
-          }
-          if (statusMsg) statusMsg.innerHTML = '';
-        }, 5000);
-      } catch (error) {
-        console.error('Lead form send error:', error);
-        if (btn) {
-          btn.innerHTML = 'Ошибка ❌';
-          btn.disabled = false;
-          btn.classList.remove('opacity-60');
-        }
-        if (statusMsg) {
-          statusMsg.innerHTML = '<span class="text-red-400">Ошибка отправки. Напишите в Telegram: <a href="https://t.me/Arbitra_Help" class="underline">@Arbitra_Help</a></span>';
-        }
-      }
+  // URLSearchParams отправляет данные как application/x-www-form-urlencoded.
+  // Google Apps Script читает эти данные через e.parameter — надёжно и без ошибок.
+  // mode:'no-cors' нужен, чтобы браузер не блокировал ответ с Google-домена.
+  const params = new URLSearchParams(new FormData(form));
+  fetch(scriptURL, { method: 'POST', body: params, mode: 'no-cors' })
+    .then(() => {
+      if(typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'submit_form');
+      btn.innerHTML = 'Готово! ✅';
+      statusMsg.innerHTML = '<span class="text-green-400">Заявка отправлена! Свяжемся в течение 2 часов.</span>';
+      form.reset();
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Получить бесплатную консультацию →';
+        btn.classList.remove('opacity-60');
+        statusMsg.innerHTML = '';
+      }, 6000);
+    })
+    .catch(() => {
+      btn.innerHTML = 'Ошибка ❌';
+      statusMsg.innerHTML = '<span class="text-red-400">Что-то пошло не так. Напишите нам в <a href="https://t.me/Arbitra_Help" class="underline">Telegram</a>.</span>';
+      btn.disabled = false;
+      btn.classList.remove('opacity-60');
     });
-  }
-
-  function bindExitForm() {
-    const exitForm = document.getElementById('exit-form');
-    if (!exitForm) return;
-
-    exitForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const tgInput = e.target.querySelector('input[type="text"]');
-      const tg = tgInput ? tgInput.value : '';
-
-      const fd = new FormData();
-      fd.append('Telegram', tg);
-      fd.append('Источник', 'Exit Popup');
-
-      try {
-        await fetch(scriptURL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: toUrlEncoded(fd)
-        });
-
-        if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
-
-        const popup = document.getElementById('exit-popup');
-        if (popup) popup.classList.remove('show');
-        sessionStorage.setItem('popup_shown', '1');
-      } catch (err) {
-        console.error('Exit form send error:', err);
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    bindMainForm();
-    bindExitForm();
-  });
-})();
-
-// Аналогично для popup-формы (если нужна запись в ту же таблицу)
-const exitForm = document.getElementById('exit-form');
-if (exitForm) {
-  exitForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const tg = e.target.querySelector('input[type="text"]').value;
-
-    const fd = new FormData();
-    fd.append('Telegram', tg);
-    fd.append('Источник', 'Exit Popup');
-
-    try {
-      await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd });
-      if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
-      document.getElementById('exit-popup').classList.remove('show');
-      sessionStorage.setItem('popup_shown', '1');
-    } catch (_) {
-      // optional: keep silent
-    }
-  });
-}
-
-// Аналогично для popup-формы (если нужна запись в ту же таблицу)
-const exitForm = document.getElementById('exit-form');
-if (exitForm) {
-  exitForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const tg = e.target.querySelector('input[type="text"]').value;
-
-    const fd = new FormData();
-    fd.append('Telegram', tg);
-    fd.append('Источник', 'Exit Popup');
-
-    try {
-      await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd });
-      if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', 'exit_popup_submit');
-      document.getElementById('exit-popup').classList.remove('show');
-      sessionStorage.setItem('popup_shown', '1');
-    } catch (_) {
-      // optional: keep silent
-    }
-  });
+});
 
 // ── Yandex Metrica: CTA click goals ──
 function ymGoal(goal) {
   if (typeof ym !== 'undefined') ym(107630855, 'reachGoal', goal);
 }
-
-// Hero CTA
 document.querySelectorAll('a[href="#contact"]').forEach(function(link) {
   link.addEventListener('click', function() { ymGoal('click_cta'); });
 });
-
-// Pricing CTA
 var pricingBtn = document.querySelector('#pricing a[href="#contact"]');
 if (pricingBtn) pricingBtn.addEventListener('click', function() { ymGoal('click_pricing_cta'); });
-
-// Floating CTA (desktop)
 var floatingBtn = document.querySelector('#floating-cta a');
 if (floatingBtn) floatingBtn.addEventListener('click', function() { ymGoal('click_floating_cta'); });
-
-// Mobile CTA
 var mobileBtn = document.querySelector('#mobile-cta a');
 if (mobileBtn) mobileBtn.addEventListener('click', function() { ymGoal('click_mobile_cta'); });
-
-// Exit popup form submit
-var exitForm = document.getElementById('exit-form');
-if (exitForm) exitForm.addEventListener('submit', function() { ymGoal('exit_popup_submit'); });
-
-// FAQ opens
 document.querySelectorAll('.faq-toggle').forEach(function(btn) {
   btn.addEventListener('click', function() { ymGoal('faq_open'); });
 });
-
-// Slot urgency CTA
 var slotBtn = document.querySelector('#sticky-bar a');
 if (slotBtn) slotBtn.addEventListener('click', function() { ymGoal('click_sticky_bar'); });
 
@@ -1366,7 +1156,6 @@ if (slotBtn) slotBtn.addEventListener('click', function() { ymGoal('click_sticky
 const burgerBtn  = document.getElementById('burger-btn');
 const mobileNav  = document.getElementById('mobile-nav');
 const burgerLines = document.querySelectorAll('.burger-line');
-
 burgerBtn.addEventListener('click', () => {
   const isOpen = !mobileNav.classList.contains('hidden');
   if (isOpen) {
@@ -1378,14 +1167,11 @@ burgerBtn.addEventListener('click', () => {
   } else {
     mobileNav.classList.remove('hidden');
     mobileNav.classList.add('flex');
-    // Animate to X
     burgerLines[0].style.transform = 'translateY(8px) rotate(45deg)';
     burgerLines[1].style.opacity = '0';
     burgerLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
   }
 });
-
-// Close mobile nav when any link is clicked
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
   link.addEventListener('click', () => {
     mobileNav.classList.add('hidden');
@@ -1395,8 +1181,6 @@ document.querySelectorAll('.mobile-nav-link').forEach(link => {
     burgerLines[2].style.transform = '';
   });
 });
-
 </script>
-
 </body>
 </html>
